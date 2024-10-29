@@ -3,6 +3,13 @@ class Animal:
         self.name = name
         self.alive = True
         self.fed = False
+    def eat(self, food):
+        if food.edible:
+            print(f'{self.name} съел {food.name}')
+            self.fed = True
+        else:
+            print(f'{self.name} не стал есть {food.name}')
+            self.alive = False
 
 
 
@@ -13,22 +20,12 @@ class Plant:
 
 
 class Mammal(Animal):
-    def eat(self, food):
-        if food.edible:
-            print(f'{self.name} съел {food.name}')
-            self.fed = True
-        else:
-            print(f'{self.name} не стал есть {food.name}')
-            self.alive = False
+    def __init__(self, name):
+        super().__init__(name)
 
 class Predator(Animal):
-    def eat(self, food):
-        if food.edible:
-            print(f'{self.name} съел {food.name}')
-            self.fed = True
-        else:
-            print(f'{self.name} не стал есть {food.name}')
-            self.alive = False
+    def __init__(self, name):
+        super().__init__(name)
 
 class Flower(Plant):
     def __init__(self,name):
